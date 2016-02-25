@@ -34,7 +34,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        1.0
-Release:        8.11%{?dist}
+Release:        8.12%{?dist}
 Summary:        Java library for reading and editing user input in console applications
 License:        BSD
 URL:            http://jline.sourceforge.net/
@@ -47,7 +47,7 @@ Requires:      bash
 Requires:      coreutils
 
 BuildRequires: %{?scl_prefix_java_common}javapackages-tools
-BuildRequires: %{?scl_prefix_java_common}maven-local
+BuildRequires: %{?scl_prefix}maven-local
 BuildRequires: %{?scl_prefix}maven-assembly-plugin
 BuildRequires: %{?scl_prefix}maven-compiler-plugin
 BuildRequires: %{?scl_prefix}maven-install-plugin
@@ -132,6 +132,9 @@ cp -pr examples %{buildroot}%{_datadir}/%{pkg_name}
 %doc LICENSE.txt
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 1.0-8.12
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.0-8.11
 - maven33 rebuild #2
 
