@@ -26,7 +26,7 @@ Version:          2.13
 # 60.X where X is an increasing int. 60 for rhel-6. We use
 # 70.X for rhel-7. For some reason we cannot rely on the
 # dist tag.
-Release:          %{custom_release}.1%{?dist}
+Release:          %{custom_release}.2%{?dist}
 Summary:          JLine is a Java library for handling console input
 Group:            Development/Libraries
 License:          BSD and ASL 2.0
@@ -85,7 +85,7 @@ This package contains the API documentation for %{name}.
 
 # Do not import non-existing internal package
 %pom_xpath_remove "pom:build/pom:plugins/pom:plugin[pom:artifactId = 'maven-bundle-plugin']/pom:executions/pom:execution/pom:configuration/pom:instructions/pom:Import-Package"
-%pom_xpath_inject "pom:build/pom:plugins/pom:plugin[pom:artifactId = 'maven-bundle-plugin']/pom:executions/pom:execution/pom:configuration/pom:instructions" "<Import-Package>javax.swing;resolution:=optional,!org.fusesource.jansi.internal</Import-Package>"
+%pom_xpath_inject "pom:build/pom:plugins/pom:plugin[pom:artifactId = 'maven-bundle-plugin']/pom:executions/pom:execution/pom:configuration/pom:instructions" "<Import-Package>javax.swing;resolution:=optional,org.fusesource.jansi,!org.fusesource.jansi.internal</Import-Package>"
 
 # Let maven bundle plugin figure out the exports.
 %pom_xpath_remove "pom:build/pom:plugins/pom:plugin[pom:artifactId = 'maven-bundle-plugin']/pom:executions/pom:execution/pom:configuration/pom:instructions/pom:Export-Package"
@@ -113,5 +113,8 @@ This package contains the API documentation for %{name}.
 %doc LICENSE.txt
 
 %changelog
+* Tue Jun 28 2016 Severin Gehwolf <sgehwolf@redhat.com> 2.13-2
+- Properly import org.fusesource.jansi package.
+
 * Thu Jun 23 2016 Severin Gehwolf <sgehwolf@redhat.com> 2.13-1
 - Initial package.
