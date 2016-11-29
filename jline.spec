@@ -26,7 +26,7 @@ Version:          2.13
 # 60.X where X is an increasing int. 60 for rhel-6. We use
 # 70.X for rhel-7. For some reason we cannot rely on the
 # dist tag.
-Release:          %{custom_release}.2%{?dist}
+Release:          %{custom_release}.3%{?dist}
 Summary:          JLine is a Java library for handling console input
 Group:            Development/Libraries
 License:          BSD and ASL 2.0
@@ -108,11 +108,15 @@ This package contains the API documentation for %{name}.
 %files -f .mfiles
 %doc CHANGELOG.md README.md LICENSE.txt
 %dir %{_javadir}/%{pkg_name}
+%dir %{_mavenpomdir}/%{pkg_name}
 
 %files javadoc -f .mfiles-javadoc
 %doc LICENSE.txt
 
 %changelog
+* Wed Aug 31 2016 Jie Kang <jkang@redhat.com> 2.13-3
+- Own in-collection directory
+
 * Tue Jun 28 2016 Severin Gehwolf <sgehwolf@redhat.com> 2.13-2
 - Properly import org.fusesource.jansi package.
 
