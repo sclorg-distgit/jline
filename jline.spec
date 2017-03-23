@@ -2,13 +2,13 @@
 %{!?scl:%global pkg_name %{name}}
 %{?java_common_find_provides_and_requires}
 
-%global baserelease 4
+%global baserelease 5
 
 Name:             %{?scl_prefix}jline
 Version:          2.13
 Release:          4.%{baserelease}%{?dist}
 Summary:          JLine is a Java library for handling console input
-License:          BSD and ASL 2.0
+License:          BSD
 URL:              https://github.com/jline/jline2
 
 # git clone git://github.com/jline/jline2.git
@@ -84,6 +84,10 @@ set -e -x
 %files javadoc -f .mfiles-javadoc
 
 %changelog
+* Thu Feb 16 2017 Michael Simacek <msimacek@redhat.com> - 2.13-4.5
+- Fix incorrect license tag
+- Resolves: rhbz#1422828
+
 * Mon Jan 16 2017 Michael Simacek <msimacek@redhat.com> - 2.13-4.4
 - Fix dist tag
 
