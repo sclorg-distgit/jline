@@ -2,7 +2,7 @@
 %{!?scl:%global pkg_name %{name}}
 %{?java_common_find_provides_and_requires}
 
-%global baserelease 2
+%global baserelease 4
 
 Name:             %{?scl_prefix}jline
 Version:          2.13
@@ -84,6 +84,13 @@ set -e -x
 %files javadoc -f .mfiles-javadoc
 
 %changelog
+* Mon Jan 16 2017 Michael Simacek <msimacek@redhat.com> - 2.13-4.4
+- Fix dist tag
+
+* Mon Jan 16 2017 Michael Simacek <msimacek@redhat.com> - 2.13-4.3
+- Rebuild to regenerate requires on java-headless
+- Resolves: rhbz#1413547
+
 * Tue Jan  3 2017 Mikolaj Izdebski <mizdebsk@redhat.com> - 2.13-4.2
 - Build for rh-java-common
 - Resolves: rhbz#1401055
